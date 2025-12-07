@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: #e8f4ff;
+  overflow: hidden;
+}
+
+/* VIDEO BACKGROUND */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.65) saturate(1.2);
+}
+
+/* CENTER LAYOUT */
+.center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BREATH CIRCLE */
+.core {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), rgba(0,0,0,0.25));
+  transition: transform 1s ease;
+}
+
+.phase {
+  margin-top: 16px;
+  font-size: 20px;
+}
+
+/* BUTTONS */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+button {
+  background: #6cc0ff;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
