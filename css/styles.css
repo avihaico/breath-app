@@ -1,0 +1,111 @@
+:root{
+  --bg-dark: #061424;
+  --accent: #6cc0ff;
+  --glass: rgba(255,255,255,0.08);
+  --muted: #9fb6cf;
+}
+
+/* reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg-dark);color:#eef}
+
+/* video fixed in background */
+#bgVideo{
+  position:fixed;
+  inset:0;            /* top:0; right:0; bottom:0; left:0; */
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;          /* <- ensure video is under UI */
+  filter:brightness(0.55) saturate(0.95);
+  pointer-events:none;/* clicks pass through */
+}
+
+/* app container sits above video */
+.app{
+  position:relative;
+  z-index:2;          /* above video */
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:28px 18px;
+}
+
+/* center breathing area */
+.center{display:flex;align-items:center;justify-content:center;flex:1;width:100%}
+
+/* wrapper to help position label & circle responsively */
+#breathWrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+/* the circle visible above everything */
+#breathCircle{
+  width:36vmin;            /* responsive: uses viewport */
+  height:36vmin;
+  min-width:140px;
+  min-height:140px;
+  max-width:420px;
+  max-height:420px;
+  border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.12), rgba(78,168,255,0.04));
+  box-shadow:0 30px 80px rgba(2,8,20,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform 0.8s cubic-bezier(.22,.9,.23,1);
+  z-index:3;               /* keep on top */
+  backdrop-filter: blur(6px) saturate(1.05); /* subtle glass effect */
+  border: 2px solid rgba(255,255,255,0.06);
+  pointer-events:auto;
+}
+
+/* optional subtle ring to increase contrast vs video */
+#breathCircle::after{
+  content:"";
+  position:absolute;
+  width:calc(36vmin + 8px);
+  height:calc(36vmin + 8px);
+  border-radius:50%;
+  box-shadow:0 0 30px rgba(0,0,0,0.35) inset;
+  z-index:-1;
+}
+
+/* label under circle */
+#breathLabel{
+  color:var(--muted);
+  font-size:clamp(18px, 2.2vmin, 28px);
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+}
+
+/* footer controls */
+.controls{
+  width:100%;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  padding:12px 0 28px;
+  z-index:3;
+}
+
+/* buttons */
+.btn{
+  padding:10px 16px;border-radius:999px;border:0;background:linear-gradient(90deg,var(--accent),#2aa8ff);color:#04232e;font-weight:700;cursor:pointer;
+}
+.btn.secondary{background:transparent;color:#eef;border:1px solid rgba(255,255,255,0.06);}
+
+/* audio row */
+.audioRow{color:var(--muted);font-size:14px;display:flex;gap:8px;align-items:center}
+
+/* mobile tweaks */
+@media (max-width:520px){
+  #breathCircle{ width:56vmin; height:56vmin }
+  #breathCircle::after{ width:calc(56vmin + 8px); height:calc(56vmin + 8px) }
+}

@@ -3,35 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BreathFlow Video Background</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>BreathFlow — Zen</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-  <!-- BACKGROUND VIDEO -->
-  <video id="bgvideo" class="bg-video" autoplay muted loop playsinline>
+  <!-- VIDEO BACKGROUND -->
+  <video id="bgVideo" playsinline loop muted preload="auto">
     <source src="assets/bg.mp4" type="video/mp4">
   </video>
 
-  <div class="app">
-    <main class="center">
-      <div id="core" class="core"></div>
-      <div id="phase" class="phase">Ready</div>
+  <!-- MAIN UI -->
+  <main class="app">
+    <div class="topbar">
+      <div class="brand">BreathFlow</div>
+    </div>
 
-      <div class="controls">
-        <button id="start">Start</button>
-        <button id="stop" disabled>Stop</button>
-        <label>
-          <input id="audioToggle" type="checkbox">
-          Ocean ambience
-        </label>
+    <section class="center">
+      <!-- the breathing circle (above the video) -->
+      <div id="breathWrapper">
+        <div id="breathCircle" aria-hidden="true"></div>
+        <div id="breathLabel">READY</div>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <!-- USER-CONTROLLED AUDIO -->
-  <audio id="ocean" preload="auto" src="assets/ocean.mp3"></audio>
+    <footer class="controls">
+      <button id="startBtn" class="btn">Start</button>
+      <button id="stopBtn" class="btn secondary" disabled>Stop</button>
+      <label class="audioRow">
+        <input id="audioToggle" type="checkbox" /> Ambience (assets/ocean.mp3)
+      </label>
+    </footer>
+  </main>
 
-  <script src="app.js"></script>
+  <audio id="oceanAudio" preload="auto"></audio>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
