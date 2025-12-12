@@ -1,12 +1,12 @@
 {
-  "name": "BreathFlow",
+  "name": "BreathFlow • Zen",
   "short_name": "BreathFlow",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#071426",
-  "theme_color": "#071426",
+  "background_color": "#f5f2ef",
+  "theme_color": "#e4a6b1",
   "icons": [
-    { "src": "assets/icon-192.png", "sizes":"192x192", "type":"image/png" },
-    { "src": "assets/icon-512.png", "sizes":"512x512", "type":"image/png" }
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }

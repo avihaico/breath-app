@@ -3,40 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BreathFlow — Zen</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>BreathFlow • Zen PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- VIDEO BACKGROUND -->
-  <video id="bgVideo" playsinline loop muted preload="auto">
+  <!-- background video -->
+  <video id="bgVideo" autoplay muted loop playsinline crossorigin="anonymous">
     <source src="assets/bg.mp4" type="video/mp4">
   </video>
 
-  <!-- MAIN UI -->
   <main class="app">
-    <div class="topbar">
-      <div class="brand">BreathFlow</div>
+    <div id="visual" class="visual" role="img" aria-label="Breathing visual">
+      <div id="pulse" class="pulse"></div>
+      <div id="core" class="core"></div>
     </div>
 
-    <section class="center">
-      <!-- the breathing circle (above the video) -->
-      <div id="breathWrapper">
-        <div id="breathCircle" aria-hidden="true"></div>
-        <div id="breathLabel">READY</div>
-      </div>
-    </section>
+    <div class="panel">
+      <div id="phase" class="phase">Ready</div>
 
-    <footer class="controls">
-      <button id="startBtn" class="btn">Start</button>
-      <button id="stopBtn" class="btn secondary" disabled>Stop</button>
-      <label class="audioRow">
-        <input id="audioToggle" type="checkbox" /> Ambience (assets/ocean.mp3)
-      </label>
-    </footer>
+      <div class="presets">
+        <button class="preset" data-in="4" data-holdin="0" data-ex="6" data-holdex="0">Calm 4/6</button>
+        <button class="preset" data-in="3" data-holdin="1" data-ex="3" data-holdex="1">Box 3/1/3/1</button>
+        <button class="preset" data-in="5" data-holdin="0" data-ex="5" data-holdex="0">Coherent 5/5</button>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn" class="btn primary">Start</button>
+        <button id="stopBtn" class="btn" disabled>Stop</button>
+      </div>
+
+      <label class="row"><input id="audioToggle" type="checkbox"> Ocean ambience (assets/ocean.mp3)</label>
+      <label class="row"><input id="videoToggle" type="checkbox" checked> Show background video</label>
+
+      <div class="note">No signup • Free • Not a medical device</div>
+    </div>
   </main>
 
-  <audio id="oceanAudio" preload="auto"></audio>
+  <audio id="oceanAudio" preload="auto" src="assets/ocean.mp3"></audio>
 
-  <script src="js/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
