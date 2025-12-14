@@ -1,40 +1,15 @@
-:root{
-  --bg:#f5f2ef;
-  --panel:#ffffffdd;
-  --accent:#e4a6b1;
-  --muted:#7a6f74;
+#bgVideo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);color:#132028}
-#bgVideo{
-  position:fixed; inset:0; width:100%; height:100%; object-fit:cover;
-  z-index:-1; pointer-events:none; filter: saturate(.9) brightness(.7);
-}
-
-/* center visual */
-.app{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:18px; gap:20px; flex-wrap:wrap}
-.visual{position:relative; width:420px; height:420px; display:flex; align-items:center; justify-content:center; z-index:2}
-.core{width:240px; height:240px; border-radius:50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.85), rgba(196,154,162,0.65));
-  box-shadow: 0 30px 80px rgba(2,8,20,0.08); transition:transform .8s cubic-bezier(.22,.9,.23,1);}
-.pulse{position:absolute; width:160px; height:160px; border-radius:50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.12), rgba(196,154,162,0.06)); transition:transform .8s linear;}
-
-/* panel */
-.panel{width:360px; background:var(--panel); border-radius:14px; padding:16px; box-shadow:0 8px 30px rgba(6,10,12,0.08)}
-.phase{font-weight:600; color:var(--muted); text-align:center; margin-bottom:10px}
-.presets{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:12px}
-.preset{padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.05); background:transparent; cursor:pointer}
-.controls{display:flex; gap:10px; justify-content:center; margin-bottom:8px}
-.btn{padding:10px 14px; border-radius:10px; border:0; cursor:pointer}
-.primary{background:linear-gradient(90deg,#ffefef,#ffdfe6); color:#5b2d34; font-weight:700}
-.row{display:flex; align-items:center; gap:8px; color:var(--muted); margin-top:8px; justify-content:center}
-.note{font-size:12px; color:var(--muted); margin-top:10px; text-align:center}
-
-/* responsive */
-@media (max-width:900px){
-  .visual{width:320px;height:320px}
-  .core{width:180px;height:180px}
-  .panel{width:92%}
+.visual {
+  position: relative;
+  z-index: 2;
 }

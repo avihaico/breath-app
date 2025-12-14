@@ -2,8 +2,8 @@ const CACHE_NAME = 'breathflow-cache-v1';
 const URLsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/app.js',
+  'css/styles.css',
+  'jp/app.js',
   '/manifest.json'
 ];
 
